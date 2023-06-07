@@ -1,4 +1,5 @@
-﻿using RealHauzing.DataAccessLayer.Abstract;
+﻿using Microsoft.EntityFrameworkCore;
+using RealHauzing.DataAccessLayer.Abstract;
 using RealHauzing.DataAccessLayer.Concrete;
 using RealHauzing.DataAccessLayer.Repository;
 using RealHauzing.EntityLayer.Concrete;
@@ -13,11 +14,18 @@ namespace RealHauzing.DataAccessLayer.EntityFramework
     
         public class EfProductDal : GenericRepository<Product>, IProductDal
     {
-            public EfProductDal(Context context) : base(context)
-            {
+        public EfProductDal(Context context) : base(context)
+        {
 
 
-            }
         }
+
+        public List<Product> GetProductWithCategories()
+        {
+            var context=new Context();
+            var values=context.Products.Include(p => p.Category).ToList();
+            return values;
+        }
+    }
     
 }

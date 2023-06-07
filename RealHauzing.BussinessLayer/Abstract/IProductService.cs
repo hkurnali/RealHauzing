@@ -9,5 +9,6 @@ namespace RealHauzing.BussinessLayer.Abstract
 {
     public interface IProductService:IGenericService<Product>
     {
+        public List<Product> TGetProductWithCategories();
     }
 }

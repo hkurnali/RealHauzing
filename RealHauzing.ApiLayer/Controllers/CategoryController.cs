@@ -16,7 +16,7 @@ namespace RealHauzing.ApiLayer.Controllers
         {
             _categoryService = categoryService;
         }
-        [HttpGet]
+       
 
         [HttpGet]
         public IActionResult CategoryList()
@@ -53,7 +53,7 @@ namespace RealHauzing.ApiLayer.Controllers
             _categoryService.TUpdate(category);
             return Ok();
         }
-        [HttpGet("{id}")]
+        [HttpGet("id")]
         public IActionResult Getcategory(int id)
         {
             var values = _categoryService.TGetbyID(id);
