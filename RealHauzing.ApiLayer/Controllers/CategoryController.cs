@@ -35,7 +35,7 @@ namespace RealHauzing.ApiLayer.Controllers
             _categoryService.TInsert(category);
             return Ok();
         }
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeleteCategory(int id)
         {
             var values = _categoryService.TGetbyID(id);
